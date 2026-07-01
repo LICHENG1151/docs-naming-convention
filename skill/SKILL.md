@@ -7,7 +7,7 @@ description: Naming and formatting conventions for documents in /Users/a1/work/w
 
 在 `/Users/a1/work/work_space` 下创建/记录文档时，按本规范统一命名与格式。共三类文档，完整规范见：
 
-- 解析文档：`/Users/a1/work/work_space/docs-naming-convention/文档命名规范.md`
+- 解析文档：`/Users/a1/work/work_space/docs-naming-convention/解析repo文档命名规范.md`
 - 开发文档：`/Users/a1/work/work_space/docs-naming-convention/开发文档命名规范.md`
 - 问题记录：`/Users/a1/work/work_space/docs-naming-convention/问题记录文档命名规范.md`
 - 示例：`/Users/a1/work/work_space/docs-naming-convention/examples/`
