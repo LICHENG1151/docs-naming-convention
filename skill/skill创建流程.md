@@ -2,7 +2,7 @@
 name: skill创建流程
 creator: Li Cheng
 created: 2026-07-01
-modified: 2026-07-01
+modified: 2026-07-28
 -->
 
 # docs-naming Skill 创建流程与安装说明
@@ -65,3 +65,17 @@ cp /path/to/docs-naming-convention/skill/SKILL.md .claude/skills/docs-naming/SKI
 
 - 规范内容变更时，**先改** `docs-naming-convention/` 下的规范文件，再同步更新两处 `SKILL.md`（安装位置 + 本备份），并更新各文件 `modified`。
 - 保持备份 `SKILL.md` 与已安装 `SKILL.md` 内容一致。
+- 新增文档类别时，需同步四处：① 新建规范文件 ② `SKILL.md` 的 `description`（决定触发）与正文速查 ③ `work_space/CLAUDE.md` 的类别数与说明 ④ 本文件变更记录。
+
+---
+
+## 8. 变更记录
+
+### 2026-07-28 —— 新增第四类：论文 / 技术报告总结文档
+
+- 新增规范 `docs-naming-convention/论文技术报告总结文档命名规范.md`。
+- `SKILL.md`：`description` 增加第 4 类触发场景（总结论文 / arXiv 预印本 / 技术报告）；正文新增「4. 论文 / 技术报告总结」速查；「开发文档 ↔ 问题记录 的对应」一节改名为「文档间的对应关系」，补充 `related_repo`；创建流程改为四类判断。
+- `work_space/CLAUDE.md`：三类 → 四类。
+- **顺带修复**：已安装的 `/Users/a1/work/.claude/skills/docs-naming/SKILL.md` 中规范文件路径仍为旧值
+  （`00-docs-naming-convention/文档命名规范.md`），目录与文件早已更名，链接失效已久；本次同步一并改正为
+  `docs-naming-convention/解析repo文档命名规范.md`。两处 `SKILL.md` 现已完全一致。
