@@ -50,9 +50,10 @@ modified: YYYY-MM-DD
 ## 3. 问题记录文档（一个问题）
 
 - 文件：`<YYYYMMDD>-<当日序号NN>-<问题简述>.md`，如 `20260701-02-登录超时问题.md`（命名同开发文档）。
-- 元信息头追加 `related_dev:`（关联开发文档，可空）。
+- 元信息头追加 `fix_commit:`（修复 commit id，未修复留空）与 `related_dev:`（关联开发文档，可空）。
 - 正文首行标状态（两阶段）：`**状态**：未修复 | 已修复`。
 - 推荐小节：背景与环境（时间/仓/分支/commit/环境）/ 问题现象 / 复现步骤 / 原因分析 / 解决方案+修复时间 / 关联开发文档。必写清「时间、背景、现象」。
+- **问题 ↔ 修复 commit（类比 issue ↔ PR）**：修复合入后填 `fix_commit` + 在「解决方案」写明 commit id，让"这个问题哪次改动修的"可一键回溯。细则见 `/Users/a1/work/work_space/docs-naming-convention/问题记录文档命名规范.md` §5。
 
 ## 4. 论文 / 技术报告总结（一篇外部论文或报告）
 
@@ -70,8 +71,8 @@ modified: YYYY-MM-DD
 
 双向关联，互相可跳转：
 
-- 开发文档：`related_issues` 元字段 + 正文「关联问题」列出问题文档名。
-- 问题文档：`related_dev` 元字段 + 正文「关联开发文档」指回开发文档名。
+- 开发文档：`related_issues` 元字段 + 正文「关联问题」列出问题文档名；进展记录标注关键 commit/PR。
+- 问题文档：`related_dev` 元字段 + 正文「关联开发文档」指回开发文档名；修复后填 `fix_commit`（类比 issue↔PR）。
 - 独立于开发任务的问题，`related_dev` 留空。
 - 论文总结：`related_repo` 指向已解析的 `<仓名>-docs/`，`related_dev` 指向因其发起的开发任务；两者均可留空。
 
