@@ -5,13 +5,15 @@ description: Naming and formatting conventions for documents in /Users/a1/work/w
 
 # 工作区文档命名规范 Skill
 
-在 `/Users/a1/work/work_space` 下创建/记录文档时，按本规范统一命名与格式。共四类文档，完整规范见：
+在 `/Users/a1/work/work_space` 下创建/记录文档时，按本规范统一命名与格式。四类文档 + 一条跨文档的索引分级规范，完整规范见：
 
-- 解析文档：`/Users/a1/work/work_space/docs-naming-convention/解析repo文档命名规范.md`
-- 开发文档：`/Users/a1/work/work_space/docs-naming-convention/开发文档命名规范.md`
-- 问题记录：`/Users/a1/work/work_space/docs-naming-convention/问题记录文档命名规范.md`
-- 论文总结：`/Users/a1/work/work_space/docs-naming-convention/论文技术报告总结文档命名规范.md`
-- 示例：`/Users/a1/work/work_space/docs-naming-convention/examples/`
+- 解析文档：`/Users/a1/work/work_space/0-docs/docs-naming-convention/解析repo文档命名规范.md`
+- 开发文档：`/Users/a1/work/work_space/0-docs/docs-naming-convention/开发文档命名规范.md`
+- 问题记录：`/Users/a1/work/work_space/0-docs/docs-naming-convention/问题记录文档命名规范.md`
+- 论文总结：`/Users/a1/work/work_space/0-docs/docs-naming-convention/论文技术报告总结文档命名规范.md`
+- 索引与互链分级：`/Users/a1/work/work_space/0-docs/docs-naming-convention/索引与互链分级规范.md`（建/改 README、跨文档互链时读）
+- 本文件夹索引：`/Users/a1/work/work_space/0-docs/docs-naming-convention/README.md`
+- 示例：`/Users/a1/work/work_space/0-docs/docs-naming-convention/examples/`
 
 需要细节或边界情况时，Read 对应规范文件；常规创建按下面速查即可。
 
@@ -45,7 +47,7 @@ modified: YYYY-MM-DD
 - 元信息头追加 `branch:`（对应开发分支，未建留空）与 `related_issues:`（关联问题文档，可空）。
 - 正文首行标状态（三阶段，只进不退）：`**状态**：未启动 | 开发中 | 已完成`。
 - 推荐小节（空节可省）：目标与背景 / 影响范围 / 实现方案 / 进展记录（按日期追加）/ 关联问题 / 验证与结果。原则：能一屏看懂。
-- **开发分支约定（一份计划 ↔ 一条分支）**：动工时从主线拉 `dev/<日期>-<序号>-<主题>` 分支开发，**验证通过才合入主线**，文档全程跟踪分支；README「开发文档一览」表须**增设「分支」列**，一处可查全部计划↔分支↔是否合入。细则见 `/Users/a1/work/work_space/docs-naming-convention/开发文档命名规范.md` §6 与 `/Users/a1/work/work_space/docs-naming-convention/skill/开发分支与文档追踪约定.md`。
+- **开发分支约定（一份计划 ↔ 一条分支）**：动工时从主线拉 `dev/<日期>-<序号>-<主题>` 分支开发，**验证通过才合入主线**，文档全程跟踪分支；README「开发文档一览」表须**增设「分支」列**，一处可查全部计划↔分支↔是否合入。细则见 `/Users/a1/work/work_space/0-docs/docs-naming-convention/开发文档命名规范.md` §6 与 `/Users/a1/work/work_space/0-docs/docs-naming-convention/skill/开发分支与文档追踪约定.md`。
 
 ## 3. 问题记录文档（一个问题）
 
@@ -56,7 +58,7 @@ modified: YYYY-MM-DD
 - **两处索引**（新建/改状态都要同步）：顶层 `problems/00-README.md` 按**类别**聚合（链接+状态）；当月 `problems/<年>/<年-月>/00-README.md` 按**时间**列表（序号/问题/状态/类别/一句话 hook，hook 单一来源在此）。
 - 正文首行标状态（两阶段）：`**状态**：未修复 | 已修复`。
 - 推荐小节：背景与环境（时间/仓/分支/commit/环境）/ 问题现象 / 复现步骤 / 原因分析 / 解决方案+修复时间 / 关联开发文档。必写清「时间、背景、现象」。
-- **问题 ↔ 修复 commit（类比 issue ↔ PR）**：修复合入后填 `fix_commit` + 在「解决方案」写明 commit id，让"这个问题哪次改动修的"可一键回溯。细则见 `/Users/a1/work/work_space/docs-naming-convention/问题记录文档命名规范.md` §5。
+- **问题 ↔ 修复 commit（类比 issue ↔ PR）**：修复合入后填 `fix_commit` + 在「解决方案」写明 commit id，让"这个问题哪次改动修的"可一键回溯。细则见 `/Users/a1/work/work_space/0-docs/docs-naming-convention/问题记录文档命名规范.md` §5。
 
 ## 4. 论文 / 技术报告总结（一篇外部论文或报告）
 
@@ -76,10 +78,19 @@ modified: YYYY-MM-DD
 - 原则：**总结 ≠ 翻译**，提炼 + 判断才有价值；摘录原文用引用块并标注章节（`> (§3.2) …`）与自己的话区分。
 - 边界：只写「别人做了什么、我怎么看」。我们自己的实现进展进开发文档，落地踩的坑进问题记录文档。
 
+## 5. 索引与互链分级（总导航不臃肿）
+
+三级下钻，**只逐级、不跨级链叶子**（细则见 `索引与互链分级规范.md`）：
+
+- **L0 总导航**（`0-docs/README.md`）：只登记工作线 / 各部分入口，链到**文件夹或部分 README**，绝不列具体叶子文档；唯一手动保鲜项是工作线状态。
+- **L1 部分索引**（`<part>/README.md`、`<仓名>-docs/00-README.md`、`problems/00-README.md`、论文月 `00-README.md`）：维护本部分叶子清单。
+- **L2 叶子**：向上指回本部分 L1 README；同级只靠**元字段**互链（`related_dev`/`related_issues`/`related_repo`），不散贴兄弟链接。
+- **铁律**：新增一篇文档只改它所在的 L1，**L0 零改动**；只有新开工作线 / 新代码仓 / 状态变化才动 L0。
+- **索引文件名**：普通目录用 `README.md`；带两位序号的文档集（`-docs/`、problems 月、论文月）用 `00-README.md`。
+
 ## 文档间的对应关系
 
 双向关联，互相可跳转：
-
 - 开发文档：`related_issues` 元字段 + 正文「关联问题」列出问题文档名；进展记录标注关键 commit/PR。
 - 问题文档：`related_dev` 元字段 + 正文「关联开发文档」指回开发文档名；修复后填 `fix_commit`（类比 issue↔PR）。
 - 独立于开发任务的问题，`related_dev` 留空。

@@ -53,7 +53,7 @@ cp /path/to/docs-naming-convention/skill/SKILL.md .claude/skills/docs-naming/SKI
 # mkdir -p ~/.claude/skills/docs-naming && cp .../SKILL.md ~/.claude/skills/docs-naming/
 ```
 
-> 注意：`SKILL.md` 内引用的规范文件路径为绝对路径 `/Users/a1/work/work_space/docs-naming-convention/...`。若在别的机器/路径使用，需同步调整这些引用路径。
+> 注意：`SKILL.md` 内引用的规范文件路径为绝对路径 `/Users/a1/work/work_space/0-docs/docs-naming-convention/...`。若在别的机器/路径使用，需同步调整这些引用路径。
 
 ## 6. 验证
 
