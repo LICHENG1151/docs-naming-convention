@@ -31,8 +31,9 @@ modified: 2026-08-25
 
 | 入口 | 说明 |
 |---|---|
+| [worktree 并行开发约定](./worktree并行开发约定.md) | 同一仓并行开发多个互不干扰特性时用 git worktree；是「一份计划 ↔ 一条分支」的并行扩展 |
 | [skill/](./skill/) | 已封装的 `docs-naming` skill（`SKILL.md` 为速查，含四类速查表）+ `structured-writing`、开发分支追踪约定 |
-| [examples/](./examples/) | 各类规范的最小示例（解析 / 开发 / 问题 / 论文子文件夹） |
+| [examples/](./examples/) | 各类规范的最小示例（解析 / 开发 / 问题 / 论文子文件夹 / worktree 并行开发） |
 
 ---
 
