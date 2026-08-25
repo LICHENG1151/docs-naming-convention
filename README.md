@@ -7,7 +7,7 @@ modified: 2026-08-25
 
 # 文档命名规范 · docs-naming-convention
 
-> 本工作区（`/Users/a1/work/work_space`）的文档规范库。**本页是 L1 索引**：由总导航 [`0-docs/README.md`](../README.md) §5 以「文件夹级」一条链接下钻至此，再由此指向各具体规范。
+> 本工作区（`work_space`）的文档规范库。**本页是 L1 索引**：由总导航 [`0-docs/README.md`](../README.md) §5 以「文件夹级」一条链接下钻至此，再由此指向各具体规范。
 > 起草任何文档前，先按下表套对应规范。
 
 ---

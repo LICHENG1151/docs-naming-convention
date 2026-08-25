@@ -32,28 +32,28 @@ Claude Code 从两处发现 skill：
 | `<项目根>/.claude/skills/<name>/SKILL.md` | 仅该项目 |
 | `~/.claude/skills/<name>/SKILL.md` | 所有项目通用 |
 
-本 skill 安装在项目级：`/Users/a1/work/.claude/skills/docs-naming/SKILL.md`（本会话工作根目录为 `/Users/a1/work`）。
+本 skill 安装在项目级：`<项目根>/.claude/skills/docs-naming/SKILL.md`（`<项目根>` 为安装时的项目根目录）。
 
 ## 4. 创建步骤（实际执行）
 
 1. **梳理来源**：确认三份规范文件与 `examples/` 已就绪。
 2. **设计 description**：覆盖三类触发动作——解析代码仓结构、开始开发任务、记录问题，并写明默认创建人 Li Cheng。
 3. **编写 SKILL.md 正文**：内联「元信息头 / 三类命名格式 / 状态机 / 双向关联 / 创建流程」速查；细节指向 `docs-naming-convention/` 下规范与示例。
-4. **落盘安装**：写入 `/Users/a1/work/.claude/skills/docs-naming/SKILL.md`。
+4. **落盘安装**：写入 `<项目根>/.claude/skills/docs-naming/SKILL.md`。
 5. **加指引**：在 `work_space/CLAUDE.md` 增加一行，让协作者与模型更易想到该 skill。
 6. **归档备份**：将最终 `SKILL.md` 与本流程文档复制到 `docs-naming-convention/skill/`，纳入版本控制推送到 GitHub。
 
 ## 5. 安装到新机器 / 新环境
 
 ```bash
-# 在目标项目根目录下（示例：/Users/a1/work）
+# 在目标项目根目录下（<项目根>，如某个 work 目录）
 mkdir -p .claude/skills/docs-naming
 cp /path/to/docs-naming-convention/skill/SKILL.md .claude/skills/docs-naming/SKILL.md
 # 或安装为全局 skill：
 # mkdir -p ~/.claude/skills/docs-naming && cp .../SKILL.md ~/.claude/skills/docs-naming/
 ```
 
-> 注意：`SKILL.md` 内引用的规范文件路径为绝对路径 `/Users/a1/work/work_space/0-docs/docs-naming-convention/...`。若在别的机器/路径使用，需同步调整这些引用路径。
+> 注意：`SKILL.md` 内引用规范文件用**仓内相对路径**（相对本备份 `docs-naming-convention/skill/SKILL.md`，即 `../<规范>.md`）。安装到 `.claude/skills/docs-naming/` 后，这些相对路径**不**指向安装位置本身——规范文件始终在工作区的 `docs-naming-convention/` 规范库内，需据此在工作区里定位并 Read（不再依赖任何绝对路径，换机器/换路径零改动）。
 
 ## 6. 验证
 
@@ -76,6 +76,6 @@ cp /path/to/docs-naming-convention/skill/SKILL.md .claude/skills/docs-naming/SKI
 - 新增规范 `docs-naming-convention/论文技术报告总结文档命名规范.md`。
 - `SKILL.md`：`description` 增加第 4 类触发场景（总结论文 / arXiv 预印本 / 技术报告）；正文新增「4. 论文 / 技术报告总结」速查；「开发文档 ↔ 问题记录 的对应」一节改名为「文档间的对应关系」，补充 `related_repo`；创建流程改为四类判断。
 - `work_space/CLAUDE.md`：三类 → 四类。
-- **顺带修复**：已安装的 `/Users/a1/work/.claude/skills/docs-naming/SKILL.md` 中规范文件路径仍为旧值
+- **顺带修复**：已安装的 SKILL.md（`<项目根>/.claude/skills/docs-naming/`）中规范文件路径仍为旧值
   （`00-docs-naming-convention/文档命名规范.md`），目录与文件早已更名，链接失效已久；本次同步一并改正为
   `docs-naming-convention/解析repo文档命名规范.md`。两处 `SKILL.md` 现已完全一致。

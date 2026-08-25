@@ -1,19 +1,19 @@
 ---
 name: docs-naming
-description: Naming and formatting conventions for documents in /Users/a1/work/work_space. Use whenever creating or recording (1) 解析文档 code-repo structure analysis, (2) 开发文档 development-task docs, (3) 问题记录文档 issue/problem records, or (4) 论文/技术报告总结文档 paper & tech-report summaries. Triggers include parsing a code repo's structure, starting a dev task, logging a bug, or summarizing a paper/arXiv preprint/technical report. Default creator is Li Cheng.
+description: Naming and formatting conventions for documents in the work_space workspace. Use whenever creating or recording (1) 解析文档 code-repo structure analysis, (2) 开发文档 development-task docs, (3) 问题记录文档 issue/problem records, or (4) 论文/技术报告总结文档 paper & tech-report summaries. Triggers include parsing a code repo's structure, starting a dev task, logging a bug, or summarizing a paper/arXiv preprint/technical report. Default creator is Li Cheng.
 ---
 
 # 工作区文档命名规范 Skill
 
-在 `/Users/a1/work/work_space` 下创建/记录文档时，按本规范统一命名与格式。四类文档 + 一条跨文档的索引分级规范，完整规范见：
+在 `work_space` 工作区下创建/记录文档时，按本规范统一命名与格式。四类文档 + 一条跨文档的索引分级规范，完整规范见（路径相对本 `skill/SKILL.md`，即规范库 `docs-naming-convention/` 内）：
 
-- 解析文档：`/Users/a1/work/work_space/0-docs/docs-naming-convention/解析repo文档命名规范.md`
-- 开发文档：`/Users/a1/work/work_space/0-docs/docs-naming-convention/开发文档命名规范.md`
-- 问题记录：`/Users/a1/work/work_space/0-docs/docs-naming-convention/问题记录文档命名规范.md`
-- 论文总结：`/Users/a1/work/work_space/0-docs/docs-naming-convention/论文技术报告总结文档命名规范.md`
-- 索引与互链分级：`/Users/a1/work/work_space/0-docs/docs-naming-convention/索引与互链分级规范.md`（建/改 README、跨文档互链时读）
-- 本文件夹索引：`/Users/a1/work/work_space/0-docs/docs-naming-convention/README.md`
-- 示例：`/Users/a1/work/work_space/0-docs/docs-naming-convention/examples/`
+- 解析文档：`../解析repo文档命名规范.md`
+- 开发文档：`../开发文档命名规范.md`
+- 问题记录：`../问题记录文档命名规范.md`
+- 论文总结：`../论文技术报告总结文档命名规范.md`
+- 索引与互链分级：`../索引与互链分级规范.md`（建/改 README、跨文档互链时读）
+- 本文件夹索引：`../README.md`
+- 示例：`../examples/`
 
 需要细节或边界情况时，Read 对应规范文件；常规创建按下面速查即可。
 
@@ -47,7 +47,7 @@ modified: YYYY-MM-DD
 - 元信息头追加 `branch:`（对应开发分支，未建留空）与 `related_issues:`（关联问题文档，可空）。
 - 正文首行标状态（三阶段，只进不退）：`**状态**：未启动 | 开发中 | 已完成`。
 - 推荐小节（空节可省）：目标与背景 / 影响范围 / 实现方案 / 进展记录（按日期追加）/ 关联问题 / 验证与结果。原则：能一屏看懂。
-- **开发分支约定（一份计划 ↔ 一条分支）**：动工时从主线拉 `dev/<日期>-<序号>-<主题>` 分支开发，**验证通过才合入主线**，文档全程跟踪分支；README「开发文档一览」表须**增设「分支」列**，一处可查全部计划↔分支↔是否合入。细则见 `/Users/a1/work/work_space/0-docs/docs-naming-convention/开发文档命名规范.md` §6 与 `/Users/a1/work/work_space/0-docs/docs-naming-convention/skill/开发分支与文档追踪约定.md`。
+- **开发分支约定（一份计划 ↔ 一条分支）**：动工时从主线拉 `dev/<日期>-<序号>-<主题>` 分支开发，**验证通过才合入主线**，文档全程跟踪分支；README「开发文档一览」表须**增设「分支」列**，一处可查全部计划↔分支↔是否合入。细则见 `../开发文档命名规范.md` §6 与 `../skill/开发分支与文档追踪约定.md`。
 
 ## 3. 问题记录文档（一个问题）
 
@@ -58,7 +58,7 @@ modified: YYYY-MM-DD
 - **两处索引**（新建/改状态都要同步）：顶层 `problems/00-README.md` 按**类别**聚合（链接+状态）；当月 `problems/<年>/<年-月>/00-README.md` 按**时间**列表（序号/问题/状态/类别/一句话 hook，hook 单一来源在此）。
 - 正文首行标状态（两阶段）：`**状态**：未修复 | 已修复`。
 - 推荐小节：背景与环境（时间/仓/分支/commit/环境）/ 问题现象 / 复现步骤 / 原因分析 / 解决方案+修复时间 / 关联开发文档。必写清「时间、背景、现象」。
-- **问题 ↔ 修复 commit（类比 issue ↔ PR）**：修复合入后填 `fix_commit` + 在「解决方案」写明 commit id，让"这个问题哪次改动修的"可一键回溯。细则见 `/Users/a1/work/work_space/0-docs/docs-naming-convention/问题记录文档命名规范.md` §5。
+- **问题 ↔ 修复 commit（类比 issue ↔ PR）**：修复合入后填 `fix_commit` + 在「解决方案」写明 commit id，让"这个问题哪次改动修的"可一键回溯。细则见 `../问题记录文档命名规范.md` §5。
 
 ## 4. 论文 / 技术报告总结（一篇外部论文或报告）
 
