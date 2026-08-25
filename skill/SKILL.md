@@ -1,16 +1,17 @@
 ---
 name: docs-naming
-description: Naming and formatting conventions for documents in the work_space workspace. Use whenever creating or recording (1) 解析文档 code-repo structure analysis, (2) 开发文档 development-task docs, (3) 问题记录文档 issue/problem records, or (4) 论文/技术报告总结文档 paper & tech-report summaries. Triggers include parsing a code repo's structure, starting a dev task, logging a bug, or summarizing a paper/arXiv preprint/technical report. Default creator is Li Cheng.
+description: Naming and formatting conventions for documents in the work_space workspace. Use whenever creating or recording (1) 解析文档 code-repo structure analysis, (2) 开发文档 development-task docs, (3) 问题记录文档 issue/problem records, (4) 论文/技术报告总结文档 paper & tech-report summaries, or (5) 实验记录文档 experiment/drill/benchmark records. Triggers include parsing a code repo's structure, starting a dev task, logging a bug, summarizing a paper/arXiv preprint/technical report, or recording a fault drill / HA test / performance benchmark / ablation. Default creator is Li Cheng.
 ---
 
 # 工作区文档命名规范 Skill
 
-在 `work_space` 工作区下创建/记录文档时，按本规范统一命名与格式。四类文档 + 一条跨文档的索引分级规范，完整规范见（路径相对本 `skill/SKILL.md`，即规范库 `docs-naming-convention/` 内）：
+在 `work_space` 工作区下创建/记录文档时，按本规范统一命名与格式。五类文档 + 一条跨文档的索引分级规范，完整规范见（路径相对本 `skill/SKILL.md`，即规范库 `docs-naming-convention/` 内）：
 
 - 解析文档：`../解析repo文档命名规范.md`
 - 开发文档：`../开发文档命名规范.md`
 - 问题记录：`../问题记录文档命名规范.md`
 - 论文总结：`../论文技术报告总结文档命名规范.md`
+- 实验记录：`../实验记录文档命名规范.md`
 - 索引与互链分级：`../索引与互链分级规范.md`（建/改 README、跨文档互链时读）
 - 本文件夹索引：`../README.md`
 - 示例：`../examples/`
@@ -78,7 +79,20 @@ modified: YYYY-MM-DD
 - 原则：**总结 ≠ 翻译**，提炼 + 判断才有价值；摘录原文用引用块并标注章节（`> (§3.2) …`）与自己的话区分。
 - 边界：只写「别人做了什么、我怎么看」。我们自己的实现进展进开发文档，落地踩的坑进问题记录文档。
 
-## 5. 索引与互链分级（总导航不臃肿）
+## 5. 实验记录文档（一次实验 / 演练 / 基准测试）
+
+- 归属：被测代码仓 `docs/experiment_results/`（英文文件夹名，复数）；跨仓/无归属放工作区级 `0-experiments/experiment_results/`。
+- 文件：`<YYYYMMDD>-<当日序号NN>-<实验主题>.md`（命名同开发文档，日期为执行当天），如 `20260825-01-cordon-kill-worker-HA演练结果.md`。
+- 边界判据：「跑一次、看现象、下结论」= 实验记录（故障演练/HA验收/带宽压测/消融对比）。区别于开发（改代码）、问题（修 bug）、论文（总结外部）。
+- 元信息头追加 `category:`（受控类别集之一）、`related_dev:` / `related_issues:` / `related_repo:`（均可空）。
+- 受控类别集：`HA·容灾/故障演练` · `性能·带宽/吞吐` · `训练·收敛/精度` · `调度·编排` · `其他`。
+- 正文首行标状态（三阶段，只进不退）：`**状态**：设计中 | 进行中 | 已完成`。
+- **实验记录三原则**（区别于其它文档的核心）：① 可复现（配置/版本/命令钉死）② 有证据（每个结论紧跟实测日志/指标 + 时间戳）③ 假设-结论闭环（动手前写预期，结尾对吻合/偏差）。
+- 推荐小节：0 结论速览 / 1 目的与假设 / 2 环境与配置 / 3 方法与步骤 / 4 观测与证据（主体）/ 5 结论 / 6 遗留与待办 / 7 复现备忘 / 8 清理。其中 **0/1/4/5 不可省**。
+- 证据规范（生命线）：带时间戳与来源、跨时区注明换算、保留 raw 数据、**定稿前核实环境真实现状**防止拿中间态当终态。
+- 索引：`experiment_results/00-README.md` 按时间倒序表格列全部实验（含一句话 hook）。细则见 `../实验记录文档命名规范.md`。
+
+## 6. 索引与互链分级（总导航不臃肿）
 
 三级下钻，**只逐级、不跨级链叶子**（细则见 `索引与互链分级规范.md`）：
 
@@ -95,11 +109,12 @@ modified: YYYY-MM-DD
 - 问题文档：`related_dev` 元字段 + 正文「关联开发文档」指回开发文档名；修复后填 `fix_commit`（类比 issue↔PR）。
 - 独立于开发任务的问题，`related_dev` 留空。
 - 论文总结：`related_repo` 指向已解析的 `<仓名>-docs/`，`related_dev` 指向因其发起的开发任务；两者均可留空。
+- 实验记录：`related_repo` 指向被测仓解析文档，`related_dev` 指向其验证/发起的开发任务，`related_issues` 指向其暴露的问题；均可留空。
 
 ## 创建流程
 
-1. 判断文档类型（解析 / 开发 / 问题 / 论文总结）→ 选对应命名格式。
-2. 写元信息头（creator 默认 Li Cheng，日期填当日；论文类补 `title` / `url`）。
-3. 开发 / 问题 / 论文文档正文首行加 `**状态**`。
+1. 判断文档类型（解析 / 开发 / 问题 / 论文总结 / 实验记录）→ 选对应命名格式。
+2. 写元信息头（creator 默认 Li Cheng，日期填当日；论文类补 `title` / `url`；实验类补 `category` / `related_repo`）。
+3. 开发 / 问题 / 论文 / 实验文档正文首行加 `**状态**`。
 4. 涉及关联时，双向填 `related_dev` / `related_issues` / `related_repo`。
 5. 拿不准格式就 Read 对应规范文件或 examples/ 下示例对照。
