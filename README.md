@@ -32,8 +32,8 @@ modified: 2026-10-19
 
 | 入口 | 说明 |
 |---|---|
-| [worktree 并行开发约定](./worktree并行开发约定.md) | 同一仓并行开发多个互不干扰特性时用 git worktree；是「一份计划 ↔ 一条分支」的并行扩展 |
-| [并行开发 skill 模板](./skill/repo-parallel-development/SKILL.md) | 设备、repo 与 worktree 路径使用占位符；可复制定制，包含 main 历史、跨设备同步、验收与清理规则 |
+| [worktree 并行开发约定](./worktree并行开发约定.md) | 同一仓并行开发多个互不干扰特性时用 git worktree；一份计划、一条分支、一个目录，计划与实现分两阶段合入 main |
+| [并行开发 skill 模板](./skill/repo-parallel-development/SKILL.md) | 设备、repo 与 worktree 路径使用占位符；可复制定制，包含同分支两阶段合入、main 历史、跨设备同步及清理规则 |
 | [skill/](./skill/) | 已封装的 `docs-naming` skill（`SKILL.md` 为速查，含四类速查表）+ `structured-writing`、开发分支追踪约定 |
 | [examples/](./examples/) | 各类规范的最小示例（解析 / 开发 / 问题 / 论文子文件夹 / worktree 并行开发） |
 
