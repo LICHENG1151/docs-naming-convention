@@ -2,7 +2,7 @@
 name: worktree-并行开发示例
 creator: Li Cheng
 created: 2026-08-25
-modified: 2026-08-25
+modified: 2026-10-19
 -->
 
 # 示例 · git worktree 并行开发两个特性
@@ -58,18 +58,21 @@ branch: dev/20260702-01-推理缓存接入
 | 20260702-01-推理缓存接入 | 开发中 | dev/20260702-01-推理缓存接入 | KV cache 接入推理链路 |
 ```
 
-## 5. 特性 A 验证通过 → 合入 → 移除目录
+## 5. 特性 A 验证最新组合 → 合入 → 经同意后清理目录
 
 ```bash
-# 切回主检出合入主线
-cd ../../ltp_ha
+# 示例前提：最新 main 与开发 tip 的组合已验收，集成串行且两者未变化
+# 在主检出合入主线
+cd /path/to/ltp_ha
 git switch main && git merge --no-ff dev/20260701-01-登录接口重构
 
-# 移除该特性的 worktree 目录，并（可选）删分支
+# 以下是独立清理步骤，不紧接合入自动执行：
+# 核验整个分支 tip 已合入，检查未提交/未跟踪/ignored 产物与进程
+# 获得开发人员对具体目录的明确同意后才移除；删分支另需授权
 git worktree remove ../ltp_ha.worktrees/20260701-01-登录接口重构
 git branch -d dev/20260701-01-登录接口重构
 ```
 
 收尾：文档 A 状态改 `已完成`、进展记录写合入 commit/PR，README 分支标「已合入」；特性 B 的 worktree 不受影响，继续开发。
 
-> 若曾手动 `rm -rf` 目录，记得 `git worktree prune` 清理登记，否则 `git worktree list` 会留幽灵项。
+> 跨设备须先在开发机独立 clone，再创建该机的 worktree；不能跨设备复制 .git 指针。prune 仅清理已确认失效的登记，不处理暂时离线现场。
